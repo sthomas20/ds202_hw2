@@ -56,7 +56,17 @@ for (i in 1:200)
 
 ```{r}
 
+range <- c(1:2001)
+numPerfect <- 0
 
+for(i in range){
+  square_root = sqrt(i)
+  if (square_root %% 1 == 0){
+    numPerfect <- numPerfect + 1
+  }
+}
+
+print(numPerfect)
 
 ```
 
@@ -111,11 +121,10 @@ summary(cars1999)
 
 x2<-cars2008$hwy
 y2<-cars1999$hwy
-box_plot(x2)
+boxplot(x2, y2)
 
 x3<-cars2008$cty
 y3<-cars1999$cty
-plot(x3,y3, main= "2008 vs 1999 cty mpg", xlab = "2008 cty mpg", ylab = "1999 cty mpg",)
 
 ```
 
