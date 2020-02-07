@@ -1,8 +1,7 @@
 ---
 title: 'hw2'
-author: "Sonia Thomas"
+author: "Name: Sonia Thomas github username: sthomas20"
 date: "2/4/2020"
-github username: "@sthomas20"
 output: html_document
 ---
 
@@ -20,6 +19,8 @@ Make sure to replace "Your Name" and "your_github_username" in the YAML with you
 
 
 ## R commands
+
+### Question 1
 1. Today's temperature has a high of 24 and a low of 15 degree fahrenheit.  Find the corresponding degress in celsius and storage it in a (single) vector named `cel`. Print the variable.
 ```{r}
 temp<- c(24,15)
@@ -35,16 +36,17 @@ cel
 
 ```
 
+### Question 2
 2. Create a vector of length 200. The odd entries should be 3 and even entries should be 1. Storage the created in a variable named `vec200` and print.
 ```{r}
 vec200<- c(1:200)
 for (i in 1:200) 
 {
   if((i %% 2) == 0) {
-    vec200[i]<- 3
+    vec200[i]<- 1
   }
   else {
-    vec200[i]<- 1
+    vec200[i]<- 3
   }
  
 }
@@ -52,6 +54,7 @@ for (i in 1:200)
 
 ```
 
+### Question 3
 3. How many perfect squares are there between 1 and 2001? Storage the answer in a  variable named `numPerfect` and print. You may want to look at `?round`.
 
 ```{r}
@@ -78,6 +81,7 @@ for the years 1999 and 2008 as collected by the US Environmental Protection Agen
 
 Most exercises are from the ggplot2 book section 2.2.1. You might find it helpful for working on the homework to read through this section. *However, all questions can be solved by using just the basic R graphics functions.*
 
+### Question 1
 1. What are the 3 most fuel-efficient models in terms of highway mileage? Storage the data frame (with 3 rows) containing all information of these three cars in a variable named `top3` and print.
 ```{r}
 summary(mpg)
@@ -89,15 +93,21 @@ top3 <- mpg[mpg$hwy %in% c(41, 44), ]
 top3
 
 ```
+###### **The three most fuel-effiecient models in terms of highway mileage are the volkwagen jetta and the new beetle based on the data from above.**
 
+#### Question 2
 2. How many different compact models are included in this dataset? Storage the answer in  a
 variable named `numCompact` and print.
 ```{r}
 head(mpg)
 compact <- mpg[which(mpg$class == "compact"),]
 compact
-length(unique(compact$model))
+numCompact<-length(unique(compact$model))
+print(numCompact)
 ```
+######  **Based on the output above there are 8 different compact models.**
+
+#### Question 3
 3. Create a scatterplot of `hwy` and `cty` and describe the relationship. Why are there so few points visible? Explain your findings.
 ```{r}
 x<-mpg$hwy
@@ -106,8 +116,9 @@ plot(x,y, main= "hwy vs city", xlab = "hwy mpg", ylab = "city mpg",)
 
 ```
 
-- There are few visible points because if you look closer at the graph the darker the circle is that means it is representing a duplicate of that point so thats why there is so little points 
+###### **There are few visible points because if you look closer at the graph the darker the circle is that means it is representing a duplicate of that point so thats why there is so little points. When in reality there should be over 200 observations based on the dataset and thats why there doesn't seem to be over 200 plotted points on the graph.**
 
+### Question 4
 4. Are cars in 2008 more fuel efficient than cars in 1999? Use graphs *and* summary statistics to answer this question. Explain your findings.
 ```{r}
 cars2008<- mpg[mpg$year == 2008, ]
@@ -116,18 +127,30 @@ cars2008
 cars1999<- mpg[mpg$year == 1999,]
 cars1999
 
-summary(cars2008)
-summary(cars1999)
+
 
 x2<-cars2008$hwy
 y2<-cars1999$hwy
-boxplot(x2, y2)
+boxplot(x2, y2, main= "Boxplot of hwy fuel efficiency in 2008 and 1999", ylab = "hwy fuel efficiency", names = c("2008", "1999"))
 
 x3<-cars2008$cty
 y3<-cars1999$cty
+boxplot(x3, y3, main= "Boxplot of city fuel efficiency in 2008 and 1999", ylab = "city fuel efficiency", names = c("2008", "1999"))
+
+#summary of hwy fuel efficiency in 2008
+summary(x2)
+#summary of hwy fuel efficiency in 1999
+summary(y2)
+
+#summary of city fuel efficiency in 2008
+summary(x3)
+#summary of city fuel efficiency in 1999
+summary(y3)
+
+
 
 ```
 
-- Cars have better fuel efficieny in 2008 since you can see they are more miles per gallon earned for cars in 2008. You can see this clearly based on the average summary 
+###### **Cars have better fuel efficieny in 2008 since you can see they are more miles per gallon earned for cars in 2008. You can see this clearly based on the average summary.**
 
 Note: your submission is supposed to be fully reproducible, i.e. the TA and I will 'knit' your submission. Make sure that you don't use any file structure that depends on your computing environment.
