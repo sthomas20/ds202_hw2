@@ -93,9 +93,9 @@ top3 <- mpg[mpg$hwy %in% c(41, 44), ]
 top3
 
 ```
-###### **The three most fuel-effiecient models in terms of highway mileage are the volkwagen jetta and the new beetle based on the data from above.**
+##### **The three most fuel-effiecient models in terms of highway mileage are the volkwagen jetta and the new beetle based on the data from above.**
 
-#### Question 2
+### Question 2
 2. How many different compact models are included in this dataset? Storage the answer in  a
 variable named `numCompact` and print.
 ```{r}
@@ -105,9 +105,9 @@ compact
 numCompact<-length(unique(compact$model))
 print(numCompact)
 ```
-######  **Based on the output above there are 8 different compact models.**
+#####  **Based on the output above there are 8 different compact models.**
 
-#### Question 3
+### Question 3
 3. Create a scatterplot of `hwy` and `cty` and describe the relationship. Why are there so few points visible? Explain your findings.
 ```{r}
 x<-mpg$hwy
@@ -116,7 +116,7 @@ plot(x,y, main= "hwy vs city", xlab = "hwy mpg", ylab = "city mpg",)
 
 ```
 
-###### **There are few visible points because if you look closer at the graph the darker the circle is that means it is representing a duplicate of that point so thats why there is so little points. When in reality there should be over 200 observations based on the dataset and thats why there doesn't seem to be over 200 plotted points on the graph.**
+##### **Based on the scatter plot there seems to be a positive linear relationship and correlation between the two variables, cty and hwy. There are few visible points because if you look closer at the graph the darker the circle is that means it is representing a duplicate of that point so thats why there is so little points. When in reality there should be over 200 observations based on the dataset and thats why there doesn't seem to be over 200 plotted points on the graph.**
 
 ### Question 4
 4. Are cars in 2008 more fuel efficient than cars in 1999? Use graphs *and* summary statistics to answer this question. Explain your findings.
@@ -151,6 +151,8 @@ summary(y3)
 
 ```
 
-###### **Cars have better fuel efficieny in 2008 since you can see they are more miles per gallon earned for cars in 2008. You can see this clearly based on the average summary.**
+##### **Based on the output of the data above through my summary statistics and boxplots I personally dont think its clear as to which car has better fuel efficiency. When looking at my boxplot it looks like cars in 2008 are more fuel efficient on the highway but when looking at the summary that doesn't seem the case. The reason I think this is because cars in 1999 have a higher max fuel efficiency in both the the city and hwy and a higher average fuel efficiency on the hwy versus cars in the 2008. Also the line which corresponds to the median in my boxplot of hwy fuel efficiency in 1999 is higher in than the line in the 2008 boxplot. You can also see that the difference in means helps determine that cars in 1999 have a better fuel efficiency. **
+
+
 
 Note: your submission is supposed to be fully reproducible, i.e. the TA and I will 'knit' your submission. Make sure that you don't use any file structure that depends on your computing environment.
